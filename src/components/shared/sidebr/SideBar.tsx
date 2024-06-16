@@ -39,7 +39,7 @@ const SideBar: React.FC = () => {
     <section className="relative">
       <div
         className={`bg-zinc-950 min-h-screen ${
-          open ? 'w-64' : 'w-14'
+          open ? 'w-48' : 'w-14'
         } text-white`}
       >
         <div className="cursor-pointer flex justify-end">

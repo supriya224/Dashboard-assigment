@@ -1,21 +1,34 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useState } from 'react';
 import { Bookmark, Compass, Search, Tv } from 'react-feather';
 import { MainLayout } from '../layouts';
 import Card from '../components/core/cards/Card';
+// import Chart from '../components/core/Charts';
+import SectorPerformance from '../components/core/SectorPerformance';
+import MarketPage from './Market.page';
+import Charts from '../components/core/Charts';
+import TimeRangeSelector from '../components/core/TimeRangeSelector';
+// import Chart from '../components/core/Charts';
 
 const HomePage: React.FC = () => {
+  const [timeRange, setTimeRange] = useState<string>('1D');
+  const [symbol, setSymbol] = useState<string>('SPY'); // De
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <MainLayout>
-      <section className="w-[90vw] h-screen bg-zinc-300 gap-1">
+      <section className="w-[90vw] h-screen bg-zinc-100 gap-1">
         {/* navabr section */}
         <div className="flex justify-between bg-zinc-900 py-8 px-2 items-center mx-1">
           <div>
-            <h3 className="text-white text-3xl ">Hello jane</h3>
-            <p className="text-zinc-400">
-              Thursday <span>February 15</span>
-            </p>
+            <h3 className="text-white text-3xl">Hello Jane</h3>
+            <p className="text-zinc-400">{currentDate}</p>
           </div>
           <div className="flex gap-9 text-zinc-400">
             <h3 className="flex gap-1 text-xs items-center justify-center w-fit bg-zinc-800 rounded-full p-2">
@@ -40,6 +53,16 @@ const HomePage: React.FC = () => {
         <hr className="border-zinc-800" />
         {/* card section */}
         <Card />
+
+        <div className="w-[50vw]">
+          <Charts />
+        </div>
+        <TimeRangeSelector
+          selectedRange={timeRange}
+          onSelectRange={setTimeRange}
+        />
+        {/* <SectorPerformance /> */}
+        {/* <MarketPage /> */}
       </section>
     </MainLayout>
   );

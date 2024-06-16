@@ -3,6 +3,14 @@
 import { useState, useEffect } from 'react';
 import { API_URL } from '../utils/constants';
 
+interface MetaData {
+  '1. Information': string;
+  '2. Symbol': string;
+  '3. Last Refreshed': string;
+  '4. Output Size': string;
+  '5. Time Zone': string;
+}
+
 interface TimeSeriesData {
   [date: string]: {
     '1. open': string;
@@ -16,8 +24,16 @@ interface TimeSeriesData {
   };
 }
 
+interface FetchData {
+  metaData: MetaData | null;
+  timeSeries: TimeSeriesData | null;
+}
+
 const useFetchData = () => {
-  const [data, setData] = useState<TimeSeriesData | null>(null);
+  const [data, setData] = useState<FetchData>({
+    metaData: null,
+    timeSeries: null,
+  });
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,7 +45,10 @@ const useFetchData = () => {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setData(result['Time Series (Daily)']);
+        setData({
+          metaData: result['Meta Data'],
+          timeSeries: result['Time Series (Daily)'],
+        });
       } catch (err) {
         if (err instanceof Error) {
           setError(err.message);

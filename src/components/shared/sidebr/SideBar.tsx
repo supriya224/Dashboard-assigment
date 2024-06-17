@@ -29,9 +29,9 @@ const SideBar: React.FC = () => {
 
   const menus: MenuItem[] = [
     { name: 'Home', link: '/', icon: <Home /> },
-    { name: 'Stock', link: '/stocks', icon: <BarChart2 /> },
+    { name: 'Stock', link: '/stock', icon: <BarChart2 /> },
     { name: 'Details', link: '/details', icon: <BookOpen /> },
-    { name: 'Market', link: '/stock', icon: <Bookmark /> },
+    { name: 'Market', link: '/markets', icon: <Bookmark /> },
     { name: 'Help', link: '/help', icon: <HelpCircle /> },
   ];
 

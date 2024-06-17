@@ -7,7 +7,6 @@ import {
   MarketPage,
   StockPage,
 } from './pages';
-// bg-red-900 sm:bg-teal-500 md:bg-blue-400 lg:bg-pink-500 xl:bg-green-400
 
 function App() {
   return (

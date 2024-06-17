@@ -14,7 +14,7 @@ const markets = [
 
 const MarketPage: React.FC = () => {
   return (
-    <div className=" text-zinc-800 px-12 py-12 shadow-lg w-full rounded-lg">
+    <div className=" text-zinc-600 px-12 py-12 shadow-lg w-full rounded-lg">
       <h2 className="text-2xl font-bold mb-2">Markets Overview</h2>
       {markets.map((market) => (
         <div key={market.name} className="flex justify-between ">

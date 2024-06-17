@@ -10,7 +10,7 @@ const Card: React.FC = () => {
   // Fetch data using the custom hook
   const { data, loading, error } = useFetchData();
   // Handle loading state
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="text-white">Loading...</div>;
   // Handle error state
   if (error) return <div>Error: {error}</div>;
 

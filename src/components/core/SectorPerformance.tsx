@@ -12,10 +12,10 @@ const sectors = [
 
 const SectorPerformance: React.FC = () => {
   return (
-    <div className="bg-white p-4 shadow-lg rounded-lg">
+    <div className=" w-full mt-9 p-4 shadow-inner shadow-zinc-950 rounded-lg text-white ">
       <h2 className="text-2xl font-bold mb-4">Sector Performance</h2>
       {sectors.map((sector) => (
-        <div key={sector.name} className="flex justify-between mb-2">
+        <div key={sector.name} className="flex justify-between gap-32 mb-2">
           <span>{sector.name}</span>
           <span
             className={sector.change > 0 ? 'text-green-600' : 'text-red-600'}

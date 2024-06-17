@@ -15,7 +15,6 @@ const HomePage: React.FC = () => {
     month: 'long',
     day: 'numeric',
   });
-  //  sm:bg-teal-500 md:bg-blue-400 lg:bg-pink-500 xl:bg-green-400
   return (
     <MainLayout>
       <section className="w-[90vw] h-full gap-1  bg-zinc-900">

@@ -1,6 +1,6 @@
 # Stock Market Dashboard
 
-This project is a Stock Market Dashboard built using React and TypeScript. It fetches and displays stock data, including metadata and time series information, and presents it in a user-friendly interface. The dashboard includes components to display a summary card, a detailed table, and a line chart showing the stock's performance over different time ranges.
+This project is a Stock Market Dashboard built using React and TypeScript. It fetches and displays stock data, including metadata and time series information, and presents it in a user-friendly interface. The dashboard includes components to display a summary card, a detailed table, a line chart, pie chart and bar chart showing the stock's performance over different time ranges.
 
 ## Features
 

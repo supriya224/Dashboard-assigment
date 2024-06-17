@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Stock Market Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Stock Market Dashboard built using React and TypeScript. It fetches and displays stock data, including metadata and time series information, and presents it in a user-friendly interface. The dashboard includes components to display a summary card, a detailed table, and a line chart showing the stock's performance over different time ranges.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Card Component**: Displays stock metadata such as symbol, information, last refreshed date, output size, and time zone.
+- **Table Component**: Shows the stock's open, high, low, close, and adjusted close prices for the last five days.
+- **Chart Component**: Visualizes the stock's close price over different time ranges (1D, 1W, 1M, 3M, 1Y, All).
+- **Sidebar Navigation**: Provides links to different sections of the dashboard with active state indication and dynamic icon colors.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/Dashboard-assigment.git
+   cd Dashboard-assigment
+Usage
+After starting the development server, navigate to http://localhost:3000 in your web browser to view the dashboard.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Structure
+1. components: Contains the core components of the application.
+2. card.tsx: Displays stock metadata and the last five days' data in a table.
+3. Charts.tsx: Displays a line chart of the stock's close prices over different time ranges.
+4. hooks: Contains custom hooks used in the application.
+5. useFetchData.ts: Custom hook to fetch stock data from the API.
+6. layouts: Contains layout components for the application.
+7. pages: Contains the main pages of the application.
+8. HomePage.tsx: The main page of the dashboard.
+9. utils: Contains utility files.
+constants.ts: Contains constant values used throughout the application.
 
-### `npm test`
+## API
+The application fetches stock data from an external API. Update the API_URL in hooks/useFetchData.ts with the appropriate endpoint.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Customization
+Sidebar Active State and Icon Colors
+In the SideBar component, the active state of the menu items is indicated by a blue right border and dynamic icon colors. Modify the CSS classes to customize the appearance.
 
-### `npm run build`
+## Chart Size
+To adjust the chart size, modify the style attribute in the Chart component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

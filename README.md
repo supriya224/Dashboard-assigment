@@ -6,7 +6,6 @@ This project is a Stock Market Dashboard built using React and TypeScript. It fe
 
 - **Card Component**: Displays stock metadata such as symbol, information, last refreshed date, output size, and time zone.
 - **Table Component**: Shows the stock's open, high, low, close, and adjusted close prices for the last five days.
-- **Chart Component**: Visualizes the stock's close price over different time ranges (1D, 1W, 1M, 3M, 1Y, All).
 - **Sidebar Navigation**: Provides links to different sections of the dashboard with active state indication and dynamic icon colors.
 
 ## Installation

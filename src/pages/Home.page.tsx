@@ -5,16 +5,10 @@ import React, { useState } from 'react';
 import { Bookmark, Compass, Search, Tv } from 'react-feather';
 import { MainLayout } from '../layouts';
 import Card from '../components/core/cards/Card';
-// import Chart from '../components/core/Charts';
-import SectorPerformance from '../components/core/SectorPerformance';
 import MarketPage from './Market.page';
 import Charts from '../components/core/Charts';
-import TimeRangeSelector from '../components/core/TimeRangeSelector';
-// import Chart from '../components/core/Charts';
 
 const HomePage: React.FC = () => {
-  const [timeRange, setTimeRange] = useState<string>('1D');
-  const [symbol, setSymbol] = useState<string>('SPY'); // De
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
@@ -23,9 +17,9 @@ const HomePage: React.FC = () => {
 
   return (
     <MainLayout>
-      <section className="w-[90vw] h-screen bg-zinc-100 gap-1">
+      <section className="w-[90vw] h-full  gap-1">
         {/* navabr section */}
-        <div className="flex justify-between bg-zinc-900 py-8 px-2 items-center mx-1">
+        <div className="flex justify-between bg-zinc-900 py-5 px-2 items-center mx-1">
           <div>
             <h3 className="text-white text-3xl">Hello Jane</h3>
             <p className="text-zinc-400">{currentDate}</p>
@@ -53,16 +47,10 @@ const HomePage: React.FC = () => {
         <hr className="border-zinc-800" />
         {/* card section */}
         <Card />
-
-        <div className="w-[50vw]">
+        <div className="grid grid-cols-2 gap-12 rounded-xl  bg-black h-fit">
+          <MarketPage />
           <Charts />
         </div>
-        <TimeRangeSelector
-          selectedRange={timeRange}
-          onSelectRange={setTimeRange}
-        />
-        {/* <SectorPerformance /> */}
-        {/* <MarketPage /> */}
       </section>
     </MainLayout>
   );

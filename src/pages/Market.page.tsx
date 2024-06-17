@@ -1,5 +1,4 @@
 /* eslint-disable react/function-component-definition */
-// components/MarketsOverview.tsx
 
 import React from 'react';
 
@@ -15,10 +14,10 @@ const markets = [
 
 const MarketPage: React.FC = () => {
   return (
-    <div className="bg-white p-4 shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Markets Overview</h2>
+    <div className=" text-zinc-800 px-12 py-12 shadow-lg w-full rounded-lg">
+      <h2 className="text-2xl font-bold mb-2">Markets Overview</h2>
       {markets.map((market) => (
-        <div key={market.name} className="flex justify-between mb-2">
+        <div key={market.name} className="flex justify-between ">
           <span>{market.name}</span>
           <div className="flex gap-4">
             <span>{market.value}</span>

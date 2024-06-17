@@ -29,18 +29,16 @@ const SideBar: React.FC = () => {
 
   const menus: MenuItem[] = [
     { name: 'Home', link: '/', icon: <Home /> },
-    { name: 'Stock', link: '/stock', icon: <BarChart2 /> },
+    { name: 'Stock', link: '/stocks', icon: <BarChart2 /> },
     { name: 'Details', link: '/details', icon: <BookOpen /> },
-    { name: 'Market', link: '/market', icon: <Bookmark /> },
+    { name: 'Market', link: '/stock', icon: <Bookmark /> },
     { name: 'Help', link: '/help', icon: <HelpCircle /> },
   ];
 
   return (
     <section className="relative">
       <div
-        className={`bg-zinc-950 min-h-screen ${
-          open ? 'w-48' : 'w-14'
-        } text-white`}
+        className={`bg-zinc-950 h-full ${open ? 'w-48' : 'w-14'} text-white`}
       >
         <div className="cursor-pointer flex justify-end">
           <AlignRight onClick={() => setOpen(!open)} />
@@ -51,26 +49,36 @@ const SideBar: React.FC = () => {
             <NavLink
               to={item.link}
               key={index}
-              className={`group flex gap-3 leading-10 font-medium items-center text-sm hover:bg-zinc-800 rounded-md p-2 m-2`}
+              className={({ isActive }) =>
+                `group flex gap-3 leading-10 font-medium items-center text-sm hover:bg-zinc-800 rounded-md p-2 m-2 ${
+                  isActive ? 'border-r-4 border-blue-400' : ''
+                }`
+              }
             >
-              <p className="top-28">{item.icon}</p>
-              <h3
-                style={{
-                  transitionDelay: `${index + 3}00ms`,
-                }}
-                className={`whitespace-pre duration-500 ${
-                  !open && 'opacity-0 translate-x-28 overflow-hidden'
-                }`}
-              >
-                {item.name}
-              </h3>
-              <h3
-                className={`${
-                  open && 'hidden'
-                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-500 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-16 group-hover:duration-500 group-hover:w-fit`}
-              >
-                {item.name}
-              </h3>
+              {({ isActive }) => (
+                <>
+                  <p className={`top-28 ${isActive ? 'text-blue-400' : ''}`}>
+                    {item.icon}
+                  </p>
+                  <h3
+                    style={{
+                      transitionDelay: `${index + 3}00ms`,
+                    }}
+                    className={`whitespace-pre duration-500 ${
+                      !open && 'opacity-0 translate-x-28 overflow-hidden'
+                    }`}
+                  >
+                    {item.name}
+                  </h3>
+                  <h3
+                    className={`${
+                      open && 'hidden'
+                    } absolute left-48 bg-white font-semibold whitespace-pre text-gray-500 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-16 group-hover:duration-500 group-hover:w-fit`}
+                  >
+                    {item.name}
+                  </h3>
+                </>
+              )}
             </NavLink>
           ))}
         </div>

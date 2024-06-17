@@ -10,7 +10,7 @@ import {
 
 function App() {
   return (
-    <div className="w-full flex gap-12 bg-red-300 ">
+    <div className="w-full flex gap-12 bg-zinc-900 ">
       <BrowserRouter>
         <SideBar />
         <Routes>

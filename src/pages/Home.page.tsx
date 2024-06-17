@@ -15,17 +15,17 @@ const HomePage: React.FC = () => {
     month: 'long',
     day: 'numeric',
   });
-
+  //  sm:bg-teal-500 md:bg-blue-400 lg:bg-pink-500 xl:bg-green-400
   return (
     <MainLayout>
-      <section className="w-[90vw] h-full  gap-1">
+      <section className="w-[90vw] h-full gap-1  bg-zinc-900">
         {/* navabr section */}
-        <div className="flex justify-between bg-zinc-900 py-5 px-2 items-center mx-1">
+        <div className="flex flex-wrap md:justify-between bg-zinc-900 py-5 px-2 items-center mx-1 ">
           <div>
             <h3 className="text-white text-3xl">Hello Jane</h3>
             <p className="text-zinc-400">{currentDate}</p>
           </div>
-          <div className="flex gap-9 text-zinc-400">
+          <div className="flex gap-2 pt-1 text-zinc-400">
             <h3 className="flex gap-1 text-xs items-center justify-center w-fit bg-zinc-800 rounded-full p-2">
               <span>
                 <Compass />
@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
             </h3>
             <h3 className="flex gap-1 text-sm items-center justify-center w-fit bg-zinc-800 rounded-full p-2">
               <span>
-                <Tv />
+                <Tv size={30} className="p-1" />
               </span>
               screener
             </h3>
@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
         <hr className="border-zinc-800" />
         {/* card section */}
         <Card />
-        <div className="grid grid-cols-2 gap-12 rounded-xl  bg-black h-fit">
+        <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-12 rounded-xl  bg-black h-fit">
           <MarketPage />
           <Charts />
         </div>

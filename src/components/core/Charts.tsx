@@ -62,17 +62,18 @@ const Chart: React.FC = () => {
   const chartData = processData(timeSeries);
 
   return (
-    <div className=" p-4 shadow-lg rounded-lg ">
+    <div className=" p-4 shadow-lg rounded-lg mx-auto">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-2xl font-bold">Market Chart</h2>
       </div>
-      <div
-        className="chart-container"
-        style={{ width: '600px', height: '300px' }}
-      >
+      {/* <div className="" style={{ width: '300px', height: '300px' }}>
+        style={{ width: '200px', height: '300px' }}
+        <Line data={chartData} />
+      </div> */}
+      <div className="w-72  sm:w-[90vw] sm:h-192 md:w-[40vw] md:h-[50vh] ">
         <Line data={chartData} />
       </div>
-      <div className="flex gap-2 mt-2">
+      <div className="flex gap-2 ">
         {timeRanges.map((range) => (
           <button
             type="button"

@@ -5,16 +5,19 @@ import React from 'react';
 import useFetchData from '../../../hooks/useFetchData';
 // import useFetchData from '../hooks/useFetchData';.
 
+// Define the Card component
 const Card: React.FC = () => {
+  // Fetch data using the custom hook
   const { data, loading, error } = useFetchData();
-
+  // Handle loading state
   if (loading) return <div>Loading...</div>;
+  // Handle error state
   if (error) return <div>Error: {error}</div>;
 
   const { metaData, timeSeries } = data;
-
+  // Handle case when no data is available
   if (!metaData || !timeSeries) return <div>No data available</div>;
-
+  // Get the latest 5 dates from the time series data
   const latestDates = Object.keys(timeSeries).slice(0, 5);
 
   return (

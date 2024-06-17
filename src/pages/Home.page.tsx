@@ -9,6 +9,7 @@ import MarketPage from './Market.page';
 import Charts from '../components/core/Charts';
 
 const HomePage: React.FC = () => {
+  // Get the current date in a formatted string
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { API_URL } from '../utils/constants';
-
+// Interface for the metadata returned by the API
 interface MetaData {
   '1. Information': string;
   '2. Symbol': string;
@@ -11,6 +11,7 @@ interface MetaData {
   '5. Time Zone': string;
 }
 
+// Interface for the time series data returned by the API
 interface TimeSeriesData {
   [date: string]: {
     '1. open': string;
@@ -24,11 +25,13 @@ interface TimeSeriesData {
   };
 }
 
+// Interface for the fetch data state
 interface FetchData {
   metaData: MetaData | null;
   timeSeries: TimeSeriesData | null;
 }
 
+// Custom hook to fetch data from the API
 const useFetchData = () => {
   const [data, setData] = useState<FetchData>({
     metaData: null,
@@ -38,6 +41,7 @@ const useFetchData = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Function to fetch data from the API
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL);

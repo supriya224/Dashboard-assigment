@@ -14,6 +14,7 @@ import {
 } from 'chart.js';
 import useFetchData from '../../hooks/useFetchData';
 
+// Register the Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,9 +24,10 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
-
+// Define available time ranges
 const timeRanges = ['1D', '1W', '1M', '3M', '1Y', 'All'];
 
+// Process the time series data for charting
 const processData = (timeSeries: any) => {
   const dates = Object.keys(timeSeries).reverse();
   return {
@@ -42,21 +44,25 @@ const processData = (timeSeries: any) => {
   };
 };
 
+// Define the Chart component
 const Chart: React.FC = () => {
   const [timeRange, setTimeRange] = useState<string>('1D');
   const { data, loading, error } = useFetchData();
 
+  // Handle loading state
   if (loading) return <div>Loading...</div>;
+  // Handle error state
   if (error) return <div>Error: {error}</div>;
 
   const { timeSeries } = data;
 
+  // Handle case when no data is available
   if (!timeSeries) return <div>No data available</div>;
-
+  // Process data for chart
   const chartData = processData(timeSeries);
 
   return (
-    <div className=" p-4 shadow-lg rounded-lg">
+    <div className=" p-4 shadow-lg rounded-lg ">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-2xl font-bold">Market Chart</h2>
       </div>
